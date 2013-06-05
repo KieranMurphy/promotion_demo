@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Promotion Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tool used for the entry of promotional data.">
+    <meta name="author" content="Kieran Murphy">
+
+    <!-- Le styles -->
+    <link href="jquery-ui-1.10.3.custom/css/smoothness/jquery-ui.css" rel="stylesheet">
+    <link href="jquery-timePicker/jquery.ptTimeSelect.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="promo.css" rel="stylesheet" >
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="bootstrap/ico/favicon.png">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Promotion Demo</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">Technology Used</a></li>
+              <li><a href="#contact">Testing</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div id='main' class="container">
+
+      <h2>Promotion Entry</h2>
+      
+      <div class="row-fluid fat-bottom">
+        <span class="span1">Client:</span>
+        <div class="span2">
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Select a Client
+              <span class="caret"></span>
+            </a>
+            <ul id="clientList" class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+        </div>
+        <span id="selectedClient" class="span3" style="display:none;" ></span>
+      </div>
+
+      <div id="workArea" style="display:none;" class="well">
+        <div class="row-fluid">
+          <span class="span2">Promotion Name:</span>
+          <input id="promotionName" type="text" class="span3 offset1"/>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span1">Product:</div>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Product
+              <span class="caret"></span>
+            </a>
+            <ul id="productList" class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+          <button id="undoProduct" style="display:none;float:left;" type="button" class="btn btn-mini">Change</button>
+          <span id="productSelection" style="display:none;" class="span2"></span>
+        </div>
+  
+        <h5>Promotional Dates</h5>
+        <div class="row-fluid">
+          <div class="span1">Start:</div>
+          <input id="promoStartDate" type="text" class="span2"/>
+          <i id="startCalendarIcon" class="icon-calendar"></i> 
+        </div>
+        <div class="row-fluid">
+          <div class="span1">End:</div>
+          <input id="promoEndDate" type="text" class="span2"/>
+          <i id="endCalendarIcon" class="icon-calendar"></i>
+        </div>
+        
+        <div class="row-fluid" style="padding-bottom:10px;">
+          <div class="span2">Run Times:</div>
+          <a href="#hoursModal" role="button" class="btn" data-toggle="modal">Add</a>
+        </div>
+
+        <div id="promoTimes" style="display:none;padding-top:10px;" class="well">
+        </div>
+
+        <div id="mediaArea" style="display:none;">
+          <h5>Media</h5>
+          <div class="row-fluid">
+            <div class="span2">Select Media:</div>
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                Media
+                <span class="caret"></span>
+              </a>
+              <ul id="mediaList" class="dropdown-menu">
+                <!-- dropdown menu links -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div id="videoHolder"></div>
+
+        <h5>Promotion Recipients</h5>
+        <div class="row-fluid">
+          <div class="well">
+            <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Country
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Province
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              City
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <button id="cancelWork" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button id="saveWork" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- Modal HTML -->
+    <div id="hoursModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Promotional Times</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row-fluid fat-bottom">
+          <div id="daySelection" class="btn-group" data-toggle="buttons-checkbox">
+            <button type="button" class="btn btn-primary">Sun</button>
+            <button type="button" class="btn btn-primary">Mon</button>
+            <button type="button" class="btn btn-primary">Tues</button>
+            <button type="button" class="btn btn-primary">Wed</button>
+            <button type="button" class="btn btn-primary">Thur</button>
+            <button type="button" class="btn btn-primary">Fri</button>
+            <button type="button" class="btn btn-primary">Sat</button>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span1">Start:</div>
+          <input id="startHour" type="text" class="span2"/>
+          <i class="icon-calendar"></i> 
+        </div>
+        <div class="row-fluid">
+          <div class="span1">End:</div>
+          <input id="endHour" type="text" class="span2"/>
+          <i class="icon-calendar"></i>
+        </div>
+        <div class="row-fluid">
+          <span id="dayError" class="span5 text-error" style="display:none;">Please select a Day(s).</span>
+          <span id="hourError" class="span5 text-error" style="display:none;">Please select a Time Frame.</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="runTimeCancel" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button id="runTimeSave" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+
+    <div id="newProductModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Create a new Product</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div id="newProductNameLabel" class="span1">Name:</div>
+          <input id="newProductName" type="text" class="span2"/>
+          <div id="emptyNameLabel" style="display:none;" class="text-error span2 right-float">Enter a product name.</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button id="productSave" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+
+    <div id="newMediaModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Add Media</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div id="newMediaNameLabel" class="span1">Link:</div>
+          <input id="newMediaLink" type="text" class="span2"/>
+          <div id="emptyMediaLabel" style="display:none;" class="text-error span2 right-float">Enter a Link.</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button id="mediaSave" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery-1.10/jquery-1.10.0.js"></script>
+    <script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="jquery-timePicker/jquery.ptTimeSelect.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+
+    <script src="data.js"></script>
+    <script src="promotion.js"></script>
+
+    <script type="text/javascript">
+      var page = {};
+      $(document).ready(function() {
+        page.PromoDemo = new net.PromoDemo();
+        page.PromoDemo.init(PageData.clients);
+      });
+    </script>
+
+  </body>
+</html>

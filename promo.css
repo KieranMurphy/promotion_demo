@@ -1,0 +1,51 @@
+#main{
+	padding-top: 60px;
+}
+
+#workArea {
+	
+}
+
+.hours_area {
+	max-width: 300px;
+}
+
+.fat-bottom {
+	padding-bottom: 10px;
+}
+
+.right-float {
+	float: right;
+}
+
+.span1, .span2, .span3,
+.span4, .span5, .span6 {
+	padding-top: 4px;
+}
+
+.icon-calendar {
+	background-position: -192px -122px;
+}
+
+#promoTimes {
+	min-height: 115px;
+}
+
+.tile {
+	float: left;
+	margin-left: 10px;
+	padding-right: 5px;
+}
+
+.time {
+	width: 100px;
+	padding-right: 5px
+}
+
+.tileDays {
+	width: 250px;
+}
+
+#videoHolder {
+	margin-top: 10px;
+}
