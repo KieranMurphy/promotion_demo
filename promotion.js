@@ -46,7 +46,7 @@ var net = {};
           promoTimes =      [];
 
      function saveNewMedia() {
-          if($(NEW_MEDIA)[0].value == "" ) {
+          if ($(NEW_MEDIA)[0].value === "" ) {
                $(NEW_MEDIA_ERROR).show();
           } else {
                var newVideo = YOUTUBE_EMBED;
@@ -61,7 +61,7 @@ var net = {};
      }
 
      function populateMediaList() {
-          if(activeProduct) {
+          if (activeProduct) {
                // load the media drop down
                $(MEDIA_LIST).html("");
                $(activeProduct.media).each(function(index, value) {
@@ -129,13 +129,17 @@ var net = {};
                // there will only be the one return from this selector but it comes back in an array
                var productName = $(NEW_PRODUCT_NAME)[0].value;
 
-               if ((productName == undefined) || (productName == null) || (productName == "")) {
+               if ((productName == undefined) || (productName == null) || (productName === "")) {
                     $(NEW_NAME_LABEL).addClass("text-error");
                     $(PRODUCT_ERROR).show();
                } else {
                     $(PRODUCT_SELECT)[0].innerHTML = productName;
                     $(PRODUCT_MODAL).modal('hide');
-                    $(PRODUCT_SELECT).show();
+                    
+                    $(PRODUCT_LIST).parent().fadeOut(400, function() {
+                         $(PRODUCT_SELECT).fadeIn();
+                         $(UNDO_PRODUCT).fadeIn();
+                    });
                }
           });
 
@@ -260,21 +264,21 @@ var net = {};
           promoTimes.splice(index, 1);
           $(id).parent().remove();
 
-          if (promoTimes.length == 0) {
+          if (promoTimes.length === 0) {
                $(RUN_TIMES).fadeOut();
           }
      }
 
      function validatePromoTimes() {
           var seletedDaysCount = $(DAY_SELECTION + " .active").length;
-          if (seletedDaysCount == 0) {
+          if (seletedDaysCount === 0) {
                $(DAY_ERROR).show();
                return false;
           }
 
           $(DAY_ERROR).hide();
 
-          if (($(START_HOUR)[0].value == "") || ($(END_HOUR)[0].value == "")) {
+          if (($(START_HOUR)[0].value === "") || ($(END_HOUR)[0].value === "")) {
                $(HOUR_ERROR).show();
                return false;
           }
@@ -287,7 +291,7 @@ var net = {};
 
           $(RUN_SAVE).on("click", function () {
                if (validatePromoTimes()) {
-                    if (promoTimes.length == 0) {
+                    if (promoTimes.length === 0) {
                          saveRunTime();
                          $(RUN_TIMES).fadeIn();
                     } else {
