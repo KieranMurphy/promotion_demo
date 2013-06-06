@@ -49,3 +49,5 @@
 #videoHolder {
 	margin-top: 10px;
 }
+
+#citySelect, #provinceSelect, #countrySelect { padding-left: 10px;}

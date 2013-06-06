@@ -19,7 +19,20 @@ var PageData = {
 				}
 			],
 			locations: [
-				
+				{ 
+					name: "Canada",
+					areas: [ 
+						{ name: "Ontario", city: [ "London", "Toronto", "Ottawa" ] },
+						{ name: "Quebec", city: [ "Quebec City", "Hull", "Montreal" ] },
+						{ name: "Alberta", city: [ "Edmonton", "Calgary"] },
+					] 
+				},
+				{
+					name: "USA",
+					areas: [
+						{ name: "Michigan", city: [ "Detroit", "Port Huron" ] }
+					]
+				}
 			]
 		},
 		{
@@ -36,6 +49,22 @@ var PageData = {
 					name:"Mortgages",
 					media:[
 						{ title:"Olympic Mobile Mortgage", link:'<iframe width="320" height="240" src="http://www.youtube.com/embed/lBQGAP1-c9I?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>'}
+					]
+				}
+			],
+			locations: [
+				{ 
+					name: "Canada",
+					areas: [ 
+						{ name: "Ontario", city: [ "London", "Toronto", "Ottawa" ] },
+						{ name: "Quebec", city: [ "Quebec City", "Hull", "Montreal" ] },
+						{ name: "Alberta", city: [ "Edmonton", "Calgary"] },
+					] 
+				},
+				{
+					name: "USA",
+					areas: [
+						{ name: "Michigan", city: [ "Detroit", "Port Huron" ] }
 					]
 				}
 			]
@@ -55,6 +84,22 @@ var PageData = {
 					media:[
 						{title:"Made for Loving you", link:'<iframe width="320" height="240" src="http://www.youtube.com/embed/s5dsrA-GW0o?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>'},
 						{title:"Still in awe", link:'<iframe width="320" height="240" src="http://www.youtube.com/embed/QPvruXvufgU?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>'}
+					]
+				}
+			],
+			locations: [
+				{ 
+					name: "Canada",
+					areas: [ 
+						{ name: "Ontario", city: [ "London", "Toronto", "Ottawa" ] },
+						{ name: "Quebec", city: [ "Quebec City", "Hull", "Montreal" ] },
+						{ name: "Alberta", city: [ "Edmonton", "Calgary"] },
+					] 
+				},
+				{
+					name: "USA",
+					areas: [
+						{ name: "Michigan", city: [ "Detroit", "Port Huron" ] }
 					]
 				}
 			]

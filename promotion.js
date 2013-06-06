@@ -39,11 +39,79 @@ var net = {};
           NEW_MEDIA_ERROR = "#emptyMediaLabel",
           MEDIA_SAVE =      "#mediaSave",
           MEDIA_MODAL =     "#newMediaModal",
+          LOCATION_AREA =   "#locationArea",
+          CITY_LIST =       "#cityList",
+          COUNTRY_LIST =    "#countryList",
+          PROVINCE_LIST =   "#provinceList",
+          COUNTRY_SELECT =  "#countrySelect",
+          PROVINCE_SELECT = "#provinceSelect",
+          CITY_SELECT =     "#citySelect",
           YOUTUBE_EMBED =   '<iframe width="320" height="240" src="{0}?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>',
           data =            undefined,
           activeClient =    undefined,
           activeProduct =   undefined,
+          selectedCountry = undefined,
+          selectedProvince = undefined,
+          selectedCity =    undefined,
           promoTimes =      [];
+
+     function clearLocations() {
+          $(CITY_LIST).html("");
+          $(PROVINCE_LIST).html("");
+          $(COUNTRY_LIST).html("");
+
+          $(CITY_SELECT).html("");
+          $(PROVINCE_SELECT).html("");
+          $(COUNTRY_SELECT).html("");
+
+          selectedCountry = undefined;
+          selectedProvince = undefined;
+          selectedCity = undefined;
+
+          $(CITY_LIST).parent().hide();
+          $(PROVINCE_LIST).parent().hide();
+     }
+
+     function populateCity() {
+          $(CITY_LIST).html("");
+
+          $(selectedProvince.city).each(function (index, value) {
+               $(CITY_LIST).append("<li><a city-id='" + index + "' href='#'>" + value + "</a></li>");
+          });
+          $(CITY_LIST + " a").on("click", function(event) {
+               $(CITY_SELECT).html(selectedProvince.city[$(event.target).attr("city-id")]);
+               selectedCity = selectedProvince.city[$(event.target).attr("city-id")];
+          });
+     }
+
+     function populateProvince() {
+          $(PROVINCE_LIST).html("");
+
+          $(selectedCountry.areas).each(function (index, value) {
+               $(PROVINCE_LIST).append("<li><a province-id='" + index + "' href='#'>" + value.name + "</a></li>");
+          });
+          $(PROVINCE_LIST + " a").on("click", function(event) {
+               $(PROVINCE_SELECT).html(selectedCountry.areas[$(event.target).attr("province-id")].name);
+               selectedProvince = selectedCountry.areas[$(event.target).attr("province-id")];
+               populateCity();
+               $(CITY_LIST).parent().fadeIn();
+          });
+     }
+
+     function populateCountry() {
+          $(COUNTRY_LIST).html("");
+
+          $(activeClient.locations).each(function (index, value) {
+               $(COUNTRY_LIST).append("<li><a country-id='" + index + "' href='#'>" + value.name + "</a></li>");
+          });
+          $(COUNTRY_LIST + " a").on("click", function(event) {
+               $(COUNTRY_SELECT).html(activeClient.locations[$(event.target).attr("country-id")].name);
+               selectedCountry = activeClient.locations[$(event.target).attr("country-id")];
+               populateProvince();
+               $(PROVINCE_LIST).parent().fadeIn();
+          });
+          
+     }
 
      function saveNewMedia() {
           if ($(NEW_MEDIA)[0].value === "" ) {
@@ -120,6 +188,7 @@ var net = {};
                          $(SELECTED_CLIENT)[0].innerHTML = activeClient.name;
                          $(SELECTED_CLIENT).fadeIn();
                     });
+                    populateCountry();
                });
           }
      }
@@ -140,6 +209,8 @@ var net = {};
                          $(PRODUCT_SELECT).fadeIn();
                          $(UNDO_PRODUCT).fadeIn();
                     });
+
+                    populateMediaList();
                }
           });
 
@@ -205,6 +276,7 @@ var net = {};
                     $(RUN_TIMES)[0].innerHTML = "";
                     $(RUN_TIMES).hide();
                     promoTimes = [];
+                    clearLocations();
                });
           });
 
