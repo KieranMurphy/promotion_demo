@@ -277,6 +277,17 @@ var net = {};
                     $(RUN_TIMES).hide();
                     promoTimes = [];
                     clearLocations();
+
+                    $(MEDIA_AREA).hide();
+                    $(VIDEO_BOX).hide();
+
+                    $(PRODUCT_SELECT).hide();
+                    $(PRODUCT_SELECT)[0].innerHTML = "";
+                    activeProduct = undefined;
+                    
+                    $(PRODUCT_LIST).parent().show();
+               
+                    $(UNDO_PRODUCT).hide();
                });
           });
 
