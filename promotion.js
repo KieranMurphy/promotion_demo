@@ -76,7 +76,7 @@ var net = {};
           $(CITY_LIST).html("");
 
           $(selectedProvince.city).each(function (index, value) {
-               $(CITY_LIST).append("<li><a city-id='" + index + "' href='javascript:void();'>" + value + "</a></li>");
+               $(CITY_LIST).append("<li><a city-id='" + index + "' href='javascript:void(0);'>" + value + "</a></li>");
           });
           $(CITY_LIST + " a").on("click", function(event) {
                $(CITY_SELECT).html(selectedProvince.city[$(event.target).attr("city-id")]);
@@ -88,7 +88,7 @@ var net = {};
           $(PROVINCE_LIST).html("");
 
           $(selectedCountry.areas).each(function (index, value) {
-               $(PROVINCE_LIST).append("<li><a province-id='" + index + "' href='javascript:void();'>" + value.name + "</a></li>");
+               $(PROVINCE_LIST).append("<li><a province-id='" + index + "' href='javascript:void(0);'>" + value.name + "</a></li>");
           });
           $(PROVINCE_LIST + " a").on("click", function(event) {
                $(PROVINCE_SELECT).html(selectedCountry.areas[$(event.target).attr("province-id")].name);
@@ -102,7 +102,7 @@ var net = {};
           $(COUNTRY_LIST).html("");
 
           $(activeClient.locations).each(function (index, value) {
-               $(COUNTRY_LIST).append("<li><a country-id='" + index + "' href='javascript:void();'>" + value.name + "</a></li>");
+               $(COUNTRY_LIST).append("<li><a country-id='" + index + "' href='javascript:void(0);'>" + value.name + "</a></li>");
           });
           $(COUNTRY_LIST + " a").on("click", function(event) {
                $(COUNTRY_SELECT).html(activeClient.locations[$(event.target).attr("country-id")].name);
@@ -117,23 +117,20 @@ var net = {};
           if ($(NEW_MEDIA)[0].value === "" ) {
                $(NEW_MEDIA_ERROR).show();
           } else {
-               var newVideo = YOUTUBE_EMBED;
-               newVideo = newVideo.replace("{0}", $(NEW_MEDIA)[0].value);
-
                $(MEDIA_MODAL).modal('hide');
                $(NEW_MEDIA_ERROR).hide();
 
-               $(VIDEO_BOX).html(newVideo);
+               $(VIDEO_BOX).html($(NEW_MEDIA)[0].value);
                $(VIDEO_BOX).fadeIn();
           }
      }
 
      function populateMediaList() {
+          $(MEDIA_LIST).html("");
           if (activeProduct) {
                // load the media drop down
-               $(MEDIA_LIST).html("");
                $(activeProduct.media).each(function(index, value) {
-                    $(MEDIA_LIST).append("<li><a media-id='" + index + "' href='javascript:void();'>" + value.title + "</a></li>");
+                    $(MEDIA_LIST).append("<li><a media-id='" + index + "' href='javascript:void(0);'>" + value.title + "</a></li>");
                });
                $(MEDIA_LIST + " a").on("click", function(event) {
                     // load up the selected video
@@ -156,7 +153,7 @@ var net = {};
                //repopulate the list for whatever the active client is.
                $(activeClient.products).each(function(index, value) {
                     if ((value) && (value.name)) {
-                         $(PRODUCT_LIST).append("<li><a product-id='" + index + "' href='javascript:void();'>" + value.name + "</a></li>");
+                         $(PRODUCT_LIST).append("<li><a product-id='" + index + "' href='javascript:void(0);'>" + value.name + "</a></li>");
                     }
                });
                $(PRODUCT_LIST + " a").on("click", function(event) {
@@ -177,7 +174,7 @@ var net = {};
           if (data) {
                $(data).each(function(index, value) {
                     if ((value) && (value.name)) {
-                         $(CLIENT_LIST).append("<li><a client-id='" + index + "' href='javascript:void();'>" + value.name + "</a></li>");
+                         $(CLIENT_LIST).append("<li><a client-id='" + index + "' href='javascript:void(0);'>" + value.name + "</a></li>");
                     }
                });
                $(CLIENT_LIST + ":last-child").on("click", function(event) {

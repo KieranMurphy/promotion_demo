@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://change-this-to-the-site-you-are-testing/" />
+<title>modalTests</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">modalTests</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>file:///C:/Users/Kieran/Documents/GitHub/promotion_demo/main.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Select a Client</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Royal Bank of Canada</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=promotionName</td>
+	<td>Test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=productSave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=emptyNameLabel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=emptyNameLabel</td>
+	<td>Enter a product name.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newProductName</td>
+	<td>sample</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=productSave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=undoProduct</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=productSelection</td>
+	<td>sample</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=undoProduct</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newProductName</td>
+	<td>new sample</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=productSave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=undoProduct</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=productSelection</td>
+	<td>new sample</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Media</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Media</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=mediaSave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=emptyMediaLabel</td>
+	<td>Enter a Link.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=newMediaLink</td>
+	<td>&lt;iframe width=&quot;320&quot; height=&quot;240&quot; src=&quot;http://www.youtube.com/embed/V4zcfBiqPYU?feature=player_detailpage&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=mediaSave</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=iframe</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
